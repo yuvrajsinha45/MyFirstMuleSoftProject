@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="27806fd5-a69d-496f-b8b7-af58ea8adec0" >
+		<http:listener-connection host="localhost" port="9091" />
+	</http:listener-config>
+	<flow name="video1_hardcodedcsvFlow" doc:id="a91aa68b-3cd4-46da-8663-b6cbfc848ca1" >
+		<http:listener doc:name="Listener" doc:id="28618cc2-d7fd-49a4-af93-e54325700e6f" config-ref="HTTP_Listener_config" path="Hard_coded_csv"/>
+		<logger level="INFO" doc:name="Logger" doc:id="888b51c3-74be-43a2-b9e1-320cfc14e298" message="Yuvraj,Sinha,101"/>
+		<set-payload value="Yuvraj,Sinha,101" doc:name="Set Payload" doc:id="7f5c6379-6fcd-48a9-a7a0-eaa4fb5915fa" />
+	</flow>
+</mule>
